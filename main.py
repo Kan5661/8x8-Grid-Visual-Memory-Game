@@ -1,7 +1,7 @@
 import pygame
 import random
 import sys
-import winsound
+
 
 pygame.init()
 screen = pygame.display.set_mode((1001, 801))
@@ -155,21 +155,21 @@ while run:
 
         if next_button_rect.collidepoint(pygame.mouse.get_pos()) and event.type == pygame.MOUSEBUTTONDOWN:
             if len(red_text) == 0 or len(blue_text) == 0 or len(green_text) == 0:  # Empty textbox
-                winsound.PlaySound('sounds/error', winsound.SND_NOSTOP)
+                pass
             if red_text.isdigit() is False or green_text.isdigit() is False or blue_text.isdigit() is False:  # alphabet
-                winsound.PlaySound('sounds/error', winsound.SND_NOSTOP)
+                pass
             elif int(red_text) == int(red_count) and int(green_text) == int(green_count) and int(blue_text) == int(blue_count):
                 [game_active2, game_active, red_count, green_count, blue_count] = [False, True, 0, 0, 0]
-                winsound.PlaySound('sounds/correct', winsound.SND_ASYNC)
+                pass
             else:
                 if life > 1:
                     life -= 1
                     level -= 1
                     [game_active2, game_active, red_count, green_count, blue_count] = [False, True, 0, 0, 0]
-                    winsound.PlaySound('sounds/wrong', winsound.SND_ASYNC)
+                    
                 else:
                     [game_active2, game_active, menu, red_count, green_count, blue_count] = [False, False, True, 0, 0, 0]
-                    winsound.PlaySound('sounds/wrong', winsound.SND_ASYNC)
+                    
 
     while menu:
         screen.fill('black')
